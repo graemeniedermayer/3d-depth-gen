@@ -1,7 +1,7 @@
 # 3d-depth-gen
 AUTO1111 extension for automated txt-to-3d objects. This uses monodepth maps + bpy (blender). WIP
 
-This project has a focus on the api to generate ai 3d objects for webxr.
+This project has a secondary focus on the api to generate ai 3d objects for webxr.
 
 ## Installation
 Requires python3.10 + bpy (blender)
@@ -12,13 +12,18 @@ Should work with install from URL
 
 ## Goal List
 Aspirational list for this project
-- lots of bugfixes (put together install.py)
+- lots of bugfixes (TODO put together install.py)
 - simplify api calls
 - unity integration
 - docker image
 - automated animation + rigging
 - tangent normal maps don't seem accurate
 - deeper integration for augmented reality
+
+## Quest 3 example
+- Must run off of a separate server (TODO maybe run off same hostname?).
+- Must be run off of ssl (webxr requirement).
+- Request URL will need to be replaced by the address pointing to server name.
 
 ## JavaScript API Request example
 threejs examples. hopefully this will be simpler in the future
