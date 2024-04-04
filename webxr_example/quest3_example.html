@@ -1,0 +1,41 @@
+<!-- This requires hosting on ssl -->
+<!doctype html>
+<html>
+	<head>
+		<title>AR</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<style type="text/css">
+			@import url(https://fonts.googleapis.com/css?family=Quicksand);
+			body .dg li.title,
+			body .dg li:not(.folder),
+			body .dg.main .close-button {
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			body {
+				background-color: black;
+			}
+		</style>
+	</head>
+
+<!-- add hand tracking -->
+    <script type="importmap">
+
+        {
+			"imports": {
+				"three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.162.0/three.module.js",
+				"xrbutton": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/webxr/XRButton.js",
+                "XRControllerModelFactory":"https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/webxr/XRControllerModelFactory.js",
+                "GLTFLoader":"https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/loaders/GLTFLoader.js",
+                "OBJLoader":"https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/loaders/OBJLoader.js"
+            }
+		}
+	</script>
+
+  <input type="text" id="textbox" name="textbox">
+  <input type="button" id="button" name="button">
+  <body>
+     <script src="quest3_example.js" type="module"></script>
+  </body>
+</html>
