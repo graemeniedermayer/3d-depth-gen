@@ -3,12 +3,17 @@ AUTO1111 extension for automated txt-to-3d objects. This uses monodepth maps + b
 
 This project has a secondary focus on the api to generate ai 3d objects for webxr.
 
+<img src="https://github.com/graemeniedermayer/3d-depth-gen/assets/38518120/62caf497-c64e-4923-abb8-2bcba1c9f955" data-canonical-src="https://github.com/graemeniedermayer/3d-depth-gen/assets/38518120/62caf497-c64e-4923-abb8-2bcba1c9f955" width="200" height="200" />
+
 ## Installation
 Requires python3.10 + bpy (blender)
 
 Requires https://github.com/thygate/stable-diffusion-webui-depthmap-script
 
 Should work with install from URL 
+
+Should look like
+![Screenshot from 2024-04-04 12-11-30](https://github.com/graemeniedermayer/3d-depth-gen/assets/38518120/22bb9093-0b90-45dd-bd9e-e310b268c9b9)
 
 ## Goal List
 Aspirational list for this project
