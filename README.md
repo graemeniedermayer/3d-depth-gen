@@ -1,5 +1,5 @@
-# 3d-depth-gen
-AUTO1111 extension for automated txt-to-3d objects. This uses monodepth maps + bpy (blender). WIP
+# 3d-depth-gen (WIP)
+Create simple animated mesh from stable diffusion and monodepth.
 
 This project has a secondary focus on the api to generate ai 3d objects for webxr.
 
