@@ -27,7 +27,11 @@ models_to_index = {
     'zoedepth_n (indoor)':7, 
     'zoedepth_k (outdoor)':8, 
     'zoedepth_nk':9,
-    'marigold':10 
+    'marigold':10,
+    'depth_anything':11,
+    'depth_anything2s':12,
+    'depth_anything2m':13,
+    'depth_anything2':14
 }
 
 def decode_base64_to_image(encoding):
@@ -101,15 +105,17 @@ def api_gen(input_images, depth_images, gen_options):
     gen_obj = pipeline({
             'file_name': filepath, 
             'image': pil_images[0], 
-            'depth_image': pil_depth_images[0],
+            'calc_normal_map':  gen_options['calc_normal_map'], 
             'double_sided': gen_options['double_sided'],
-            'depth_model': 'not used',
+            'depth_image': pil_depth_images[0],
+            'depth_model': gen_options['depth_model'],
+            'remove_bg': gen_options['remove_background'],
             'depth_size': (gen_options['net_width'], gen_options['net_height']),
-            'reduced_size': (128, 128),
-            'remove_bg': True,
+            'reduced_size': gen_options['reduced_size'],
             'file_type': gen_options['file_type'],
+            'rigging': gen_options['attempt_rigging'],
             'pre_blur': True,
-            'pre_scale': 0.5
+            'pre_scale': gen_options['pre_scale']
     })
     return file_count
 

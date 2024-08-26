@@ -19,7 +19,8 @@ def use_depth_api(img, model='marigold', remove_bg = True):
     img.save(buffered, format="png")
     img_str = base64.b64encode(buffered.getvalue())
 
-    model_to_type = { 'marigold':10, 'zoedepth_n (indoor)':7, 'zoedepth_k (outdoor)':8, 'zoedepth_nk':9}
+    model_to_type = { 'marigold':10, 'zoedepth_n (indoor)':7, 'zoedepth_k (outdoor)':8, 
+                     'zoedepth_nk':9,'depthanything':11, 'depthanything2':12, 'depthanything2':14}
     dics = {
       "depth_input_images": [img_str],
         "options":{
@@ -30,6 +31,7 @@ def use_depth_api(img, model='marigold', remove_bg = True):
           "net_size_match": False,
           "boost": False,
           "invert_depth": False,
+          "face_upsample": True,
           "gen_rembg": remove_bg,
           "rembg_model": "isnet-general-use"
         }

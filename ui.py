@@ -34,7 +34,7 @@ def main_ui_panel(is_3d_gen_depth_tab):
             with gr.Row():
                 inp += 'model_type', gr.Dropdown(label="Depth Model",
                                                  choices=[ 'marigold',
-                                                          'zoedepth_n (indoor)', 'zoedepth_k (outdoor)', 'zoedepth_nk'],
+                                                          'zoedepth_n (indoor)', 'zoedepth_k (outdoor)', 'zoedepth_nk', 'depthanything', 'depthanything2s', 'depthanything2'],
                                                  value='zoedepth_n (indoor)',
                                                  type="value")
                 # inp += 'advanced_settings', gr.Checkbox(label="advanced settings", value=False)
@@ -58,6 +58,8 @@ def main_ui_panel(is_3d_gen_depth_tab):
         with gr.Box():
             with gr.Row():
                 with gr.Group():
+                    inp += "calc_normal_map", gr.Checkbox(label="calculate normal map (slow)", value=True) 
+                with gr.Group():
                     inp += "invert_normal_maps", gr.Checkbox(label="invert normal map", value=True) 
                 with gr.Group(): 
                     inp += 'pre_scale', gr.Slider(minimum=0, maximum=1, step=0.01, label='scaling', value=0.2)
@@ -75,8 +77,8 @@ def main_ui_panel(is_3d_gen_depth_tab):
                     inp += "pre_blur_edges", gr.Checkbox(label="pre-blur edges", value=True) 
                 # with gr.Group(): 
                     # inp += "texture_blend_edges", gr.Checkbox(label="texture blend edges", value=True)
-                # with gr.Group(): 
-                #     inp += "attempt_rigging", gr.Checkbox(label="texture blend edges", value=True)
+                with gr.Group(): 
+                    inp += "attempt_rigging", gr.Checkbox(label="attempt auto rigging", value=True)
     
 
 
@@ -114,7 +116,7 @@ def on_ui_tabs():
                                                 elem_id="depthmap_input_image", image_mode='RGBA')
                                 # TODO: depthmap generation settings should disappear when using this
                                 inp += gr.File(label="Custom DepthMap", file_count="single", interactive=True,
-                                               type="file", elem_id='custom_depthmap_img', visible=False)
+                                               type="binary", elem_id='custom_depthmap_img',  visible=False)
                         inp += gr.Checkbox(elem_id="custom_depthmap", label="Use custom DepthMap", value=False)
                     # with gr.TabItem('Batch Process') as depthmap_mode_1:
                     #     inp += gr.File(elem_id='image_batch', label="Batch Process", file_count="multiple",
@@ -227,12 +229,14 @@ def run_generate(*inputs):
         gen_obj = pipeline({
             'file_name':filepath, 
             'image': inputs['depthmap_input_image'], 
+            'calc_normal_map':  inputs['calc_normal_map'], 
             'double_sided':inputs['double_sided'],
             'depth_model': inputs['model_type'],
             'remove_bg': inputs['remove_background'],
             'depth_size': (inputs['net_width'], inputs['net_height']),
             'reduced_size': (inputs['reduced_width'], inputs['reduced_height']), 
             'file_type': file_type,
+            'rigging': inputs['attempt_rigging'],
             'pre_blur': inputs['pre_blur_edges'],
             'pre_scale': inputs['pre_scale']
             # '':inputs

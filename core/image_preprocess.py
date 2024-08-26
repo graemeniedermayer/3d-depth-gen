@@ -17,6 +17,7 @@ def contour_outline(cv2_img):
     img_contours = np.zeros(cv2_img.shape) 
     # make mask
     cv2.drawContours(img_contours, contours, -1, (255,255,255), -1)
+    # cv2.drawContours(img_contours, contours, -1, (255,255,255), 20)
     #invert mask
     img_contours = -1*(img_contours-255)
     

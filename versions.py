@@ -24,7 +24,7 @@ def get_commit_hash():
 
 REPOSITORY_NAME = "3d-gen-depth"
 SCRIPT_NAME = "3d-gen-DepthMap"
-SCRIPT_VERSION = "v0.0.0"
+SCRIPT_VERSION = "v0.0.1"
 SCRIPT_FULL_NAME = f"{SCRIPT_NAME} {SCRIPT_VERSION} ({get_commit_hash()})"
 
 
