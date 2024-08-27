@@ -18,14 +18,11 @@ Should look like
 ## Goal List
 Aspirational list for this project
 - lots of bugfixes (TODO put together install.py)
-- simplify api calls
 - unity integration
 - docker image
-- automated animation + rigging
 - tangent normal maps don't seem accurate
 - deeper integration for augmented reality
 - diffuse layer integration (alpha 3d objects?)
-- quick mode (TODO turbo + fast depth models for sub 10 sec gens?)
 
 ## Quest 3 example
 - Must run off of a separate server (TODO maybe run off same hostname?).
